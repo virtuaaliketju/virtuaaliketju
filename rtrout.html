@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Kirjolohi (PoGo)</title>
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito|Metrophobic|Open+Sans|Pacifico">
+			<link href="css1/style.css" rel="stylesheet" type="text/css" media="screen"/>
+			<script type="text/javascript" src="pogo.js"></script>
+			<script src="js/raphael-min.js"></script>
+			<script src="js/g.raphael-min.js"></script>
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+			<link type="text/css" href="css1/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+			<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+			<script type="text/javascript" src="js/jquery.jscrollpane.js"></script>
+			
+			<!-- google map -->
+			<script type="text/javascript"
+				src="http://maps.google.com/maps/api/js?sensor=false">
+				</script>
+			<script type="text/javascript">
+				
+				var tree= {
+					name:"Sydänmaan Highlander",
+					weight:10,
+					0:{
+						name:"Logistiikka",
+						weight:10,
+						0:{
+							name:"Pakkaaminen",
+							weight:4,
+							0:{
+								name:"Suunnittelu",
+								weight:2
+							}
+						}
+					},
+					1:{
+						name:"Valmistaminen",
+						weight:20,
+						0:{name:"Palmuöljyn valmistus",weight:9},
+						1:{name:"Kookosöljyn valmistus",weight:10},
+						2:{name:"Vesi",weight:5},
+					}
+				};
+				
+				function initialize() {
+					render('raphael', tree);
+				}
+				
+				</script>
+			</head>
+	<body id="body" onload="initialize()">
+		<div class="wrapper">
+			<div id="topright"></div>
+			<div id="header">
+				<div class="outer">
+					<div class="avatar" style="width:auto;height:auto">
+						<a href="index.html"><img id="title" src="kuvat/pogo.png"/></a><br>
+						<p class="script" style="position:relative;left:-80px;top:-25px;height:0px;">Tiedä mitä syöt</p>
+					</div>
+					<div class="body">
+						<div class="text" style="text-align:right;">
+							<div class="search">
+								<form>
+									<input id="in" name="s" type="search" results="5" placeholder="Minkä elintarvikkeen taustan haluaisit tietää?" style="width:280px;"/>
+									<div class="glass">Hae</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<br style="clear:both"/>
+				</div>
+				<ul id="social" style="right:100px;">
+					<li>Hae luomuruokaa</li>
+					<li style="margin-left:20px;">Hae lähialueelta</li>
+				</ul>
+				<ul id="social" style="left:120px;">
+					<li>Facebook</li>
+					<li>Twitter</li>
+					<li>RSS</li>
+				</ul>
+			</div>
+			<div class="topbarwrap">
+				<div class="breadcrumb">
+					Haku "kirjolohi" oli suora osuma. Tutki <a href="#">muita artikkeleita aiheesta</a>.
+				</div>
+			</div>
+			
+			<div class="wrap">
+				<div class="box3">
+					
+					<ul id="stats">
+						<li class="statborder">
+							<h1>Kirjolohi</h1>
+							<table class="qgrid1">
+								<tr id="environrow"><td class="c1" onclick="toggle('environ', 'environrow')">Ympäristö</td><td><img src="kuvat/red.png"/></td></tr>
+								<tr id="safetyrow"><td class="c1" 
+onclick="toggle('safety', 'safetyrow')">Tuoteturvallisuus</td><td><img src="kuvat/red.png"/></td></tr>
+								<tr id="sustenancerow"><td class="c1" onclick="toggle('sustenance','sustenancerow')">Ravitsemus</td><td><img src="kuvat/green.png"/></td></tr>
+								<tr id="workrow"><td class="c1" 
+onclick="toggle('workplace','workrow')">Työhyvinvointi</td><td><img src="kuvat/green.png"/></td></tr>
+								<tr id="animalrow"><td class="c1" onclick="toggle('animalcare','animalrow')">Eläinten hyvinvointi</td><td><img src="kuvat/red.png"/></td></tr>
+								<tr id="localrow"><td class="c1" onclick="toggle('locality','localrow')">Paikallisuus</td><td><img src="kuvat/green.png"/></td></tr>
+								<tr id="econrow"><td class="c1" onclick="toggle('economics','econrow')">Taloudellinen vastuu</td><td><img src="kuvat/green.png"/></td></tr>
+								<tr><td class="script" colspan="2">Mikä tämä on?</td></tr>
+							</table>
+						</li>
+						<li class="statborder">
+							<div style="width:200px;">
+								<h1>Vastuullisuusketju</h1>
+								<div id="raphael" style="width:200px;height:150px;">&nbsp;</div>
+								<p class="script">Mikä tämä on?</p>
+							</div>
+						</li>
+						<li class="statborder">
+							<h1>Loppupäätelmä</h1>
+							<img src="img/meh.jpg" style="display:block;margin:10px auto;"/>
+							<p class="script">Mikä tämä on?</p>
+						</li>
+					</ul>
+					<!--</td></tr>
+					 </table>-->
+					<div class="article">
+						<h1>Kirjolohi (Oncorhynchus mykiss)</h1>
+						
+						<p>Suomessa myytävä kirjolohi on pääosin kotimaista, mutta sitä tuodaan myös Norjasta,  Ruotsista ja Tanskasta. Sitä viljellään sekä meressä että sisävesissä verkkoaltaissa. EU:ssa tuotetaan virallisesti myös LUOMU-kirjolohta
+						lähinnä Saksassa Saksan markkinoille.  Suomalaiset syövät fileinä laskettuna 5,2 kg kalaa /hlö /vuosi josta  kirjolohta uskomattomat 1,4 kg. Kirjolohi onkin tärkein Suomessa kasvatettu kalalaji.</p>
+						
+						<p>Suosi kotimaassa kasvatettua kirjolohta sillä suomalainen kalankasvatus tarvitsee ympäristöluvan ja tuotannon suoriin ympäristövaikutusten vähentämiseen on kiinnitetty paljon huomiota. Kalanrehu kuitenkin valmistetaan luonnosta pyydetyistä kaloista, joiden alkuperän vastuullisuuteen ja kestävyyteen ei kiinnitetä vielä riittävää huomiota. Kun vesiviljelyyn saadaan vastuullisuuskriteerit laajasti käyttöön myös rehun osalta ja kasvatuksen ympäristövaikutukset on minimoitu, toiveissa on saada markkinoille kestävästi tuotettua ja sertifioitua, vihreän valon ansaitsevaa kasvatettua kalaa.Kirjolohen kasvattamisesta syntyy kuormitusta vesistöihin. Kasvatustekniikoiden, rehun koostumuksen ja ruokintamenetelmien kehittäminen voi tulevaisuudessa mahdollistaa vähemmän ympäristöä kuormittavan kirjolohen tuotannon. Suomessa kirjolohta uskalletaan myös istuttaa vesistöihimme koska se ei pysty onnistuneesti lisääntymään kylmissä vesissämme.</p>
+						<p>WWFn kalaoppaassa kirjolohi on "harkitse" listalla ja chileläinen ja turkkilainen kasvatettu kirjolohi "vältä" listalla<a href="#cite-1"><span class="cite">[1]</span></a>.</p>
+						
+						<h2>Kalan alkuperämerkinnät</h2>
+						
+						<p>Kalaa tai kalavalmisteita sisältäviin pakkauksiin on merkittävä hygienialainsäädännön mukainen alkuperämaa. Lisäksi laatuluokitellun kalan, sekä luonnonkalan että viljellyn kalankuljetuslaatikoihin on merkittävä kalan pyyntialue. Kalaa myytäessä on pyyntialue ilmoitettava pakkauksessa tai jos se myydään pakkaamattomana, myyntipisteen välittömässä läheisyydessä. Alkuperämaa on se maa tai alue, josta kala on peräisin . Pyyntialue on se vesistö, josta kala on pyydetty, esimerkiksi Suomenlahti, Hangon edusta.</p>
+						
+						<div>
+							<form>
+								<input id="in" name="s" type="search" results="5" placeholder="Anna alkuperämerkintä" style="width:280px;"/>
+								<div class="glass">Hae</div>
+							</form>
+						</div>
+						
+						
+						
+						<h2>Viitteet:</h2>
+						<table>
+							<tr><td style="width:50px;" id="cite-1">[1]</td><td>WWF:n kalaopas <a href="http://wwf.fi/mediabank/945.pdf">http://wwf.fi/mediabank/945.pdf</a></td></tr>
+							<tr><td style="width:50px;" id="cite-2">[2]</td><td>2001 Silvenius &amp; Grönroos: Suomen kalatuotteiden elinkaariarvio, Suomen Ympärisökeskus</td></tr>
+							<tr><td style="width:50px;" id="cite-3">[3]</td><td></td></tr>
+							<tr><td style="width:50px;" id="cite-4">[3]</td><td></td></tr>
+							<tr><td style="width:50px;" id="cite-5">[3]</td><td></td></tr>
+						</table>
+						
+					</div>
+					
+					<div id="overlay" onclick="hideNote();" style="display:none">
+						<div class="note" style="display:none;" id="safety">
+							<div class="arrow">
+								<div class="notetext">
+									<h1>Tuoteturvallisuus</h1>
+									<p>Kirjolohi sisältää elohopeaa keskimäärin 0,01-0,03 mg/kg. Elohopea kertyy ravintoketjun yläpäähän ja siten petokaloissa tavataan suurimmat elohopeapitoisuudet. Hyvin suurissa, yli 5 kilon, hauissa elohopeapitoisuus ylittää usein rajan 1 mg/kg, joten niiden ei katsota olevan elintarvikkeeksi kelpaavia. Kalaa ei suositella syötäväksi enempää kuin kerran viikossa, jos elohopeapitoisuus on yli 0,5 mg/kg.
+									</p>
+									<p>Vuonna 1994 kirjolohen lyijypitoisuudeksi esitettiin 2 μg/kg. Kirjolohen kadmiumpitoisuus oli vuonna 1994 alle 1 μg/kg</p>
+									<p>	Dioksiini on vaarallinen ympäristömyrkky, jota syntyy epätäydellisen palamisen seurauksena lämpöä tuottavissa prosesseissa. Hallikaisen (2000) mukaan kirjolohen dioksiinipitoisuus on tuorepainoa kohti 0,74 pg/g I-TEQ ja rasvassa 8,9 pg/g I-TEQ. (Vartianen ja Hallikainen 1995). EU:n alueelle on määritelty dioksiinin ja dioksiinin kaltaisten PCB:n kokonaissaannin yläraja 14 pg WHO-TEQ (WHO:n määrittelemää TCDD-ekvivalenttia) painokiloa kohden viikossa (KTL 2002). Suomessa dioksiinin ja PCB:n kokonaissaanti on vuorokaudessa 105 pg (TEQ) mitattuna suomalaisesta kalakorista, jolloin 70 - 60 kg painavan henkilön keskimääräinen viikkosaanti on 12,3 pg/kg. Euroopan unioni asetti ihmisravinnoksi tarkoitetulle kalalle raja-arvoksi 1.7.2002 lähtien 4 pg/g.</p>
+									<p>	Kirjolohen ympäristömyrkkypitoisuus vaihtelee sen mukaan, millaisella rehulla se on ruokittu: esimerkiksi kuivarehulla ruokitun kirjolohen DDT-pitoisuudeksi on mitattu 20 mg/kg, puoliksi kuivarehulla ja silakalla ruokitulla taas 65 mg/ kg (Vuorinen ym. 1993). Nykyisin suomalaisessa kirjolohenkasvatuksessa ei käytetä silakkaa rehuna. Luonnonkalasta on  raportoitu kymmenen kertaa suurempia DDT-pitoisuuksia kuin kirjolohesta (Elintarvikevirasto 1992). PCB-pitoisuudet ovat kirjolohella Hallikaisen (2000) mukaan 1,48 pg TEQ/g tuorepainoa ja rasvassa 16,93 pg TEQ/kg.</p>
+								</div>
+							</div>
+						</div>
+						<div class="note" style="display:none;" id="environ">
+							<div class="arrow">
+								<div class="notetext">
+									<h1>Ympäristö</h1>
+									
+									<p>Suomessa kalankasvatukseen liitetään usein merkittävimpänä ympäristövaikutuksena vesien rehevöityminen. Muita itse kasvatustoimintaan liittyviä vaikutuksia ovat mm. limoittumisenestoaineiden (antifouling) käytöstä aiheutuvat toksisten yhdisteiden päästöt vesiin ja siitä aiheutuvat ekotoksiset vaikutukset, antibioottien käytöstä aiheutuva bakteerien antibioottiresistenssin kasvaminen, maisemavaikutukset ja karkulaisten kautta vaikutukset tautien leviämiseen luonnonkalakantoihin ja vaikutukset luonnonkalakantojen perimään. Jos kalatuotteen raaka-aine on luonnonkalaa, tuotteen alkutuotantovaiheeseen liittyy tällöin kalastuksesta ja perkauksesta aiheutuvia ympäristövaikutuksia, kuten polttoaineiden kulutus ja siitä aiheutuvat päästöt, vaikutukset meren pohjaeliöstöön, antifouling-materiaalin sisältämät toksiset yhdisteet ja liikakalastus. Vesien rehevöitymisen hillitsemisen kannalta luonnonkalan käyttö ravintona on myönteistä, sillä kalastuksen seurauksena merestä poistuu ravinteita<span class="cite">[2]</span>.</p>
+									
+									<p>Viljelty kirjolohi saa punaisen värinsä rehuun lisätystä synteettisesti tuotetusta astaksantiini-pigmentistä. Astaksantiini muodostaa noin 15–20 % viljeltyjen lohikalojen rehukustannuksista.[4] Kaikki kasvatettu kirjolohi ja myös tavallinen lohi on värjättyä, sillä alan tutkimusten mukaan mitä tummemmanpunaista kala on, sitä paremmin se menee kaupaksi. Harmaa, väriaineeton kirjolohi ei mene kaupaksi.[5] Väriaineita ei Suomessa kuitenkaan tarvitse ilmoittaa.</p>
+								</div>
+							</div>
+						</div>
+						<div class="note" style="display:none;" id="sustenance">
+							<div class="arrow">
+								<div class="notetext">
+									<h1>Ravitsemus</h1>
+									<p>Kalaa pidetään ravitsemuksellisesti arvokkaana sen sisältämien pitkäketjuisten rasvahappojen vuoksi. Kalan omega-3-sarjan monityydyttymättömiä rasvahappoja ei esiinny muissa elintarvikkeissa. Kala sisältää runsaasti myös A-, D- ja E-vitamiineja sekä B-ryhmän vitamiineista tiamiinia, riboflaviinia ja pyridoksiinia sekä kivennäisaineita, erityisesti kalsiumia, rautaa, fosforia, magnesiumia ja kuparia. </p>
+									<p>Kirjolohi on hyvä proteiinin, D-, E- ja eri B-vitamiinien lähde. Kirjolohesta saa runsaasti kaliumia, jodia, kalsiumia ja seleeniä.  Kirjolohen kolesterolipitoisuus on samaa luokkaa kuin lihan. 100 grammaa kirjolohta sisältää energiaa 749 kilojoulea (179 kcal). Kirjolohi sisältää runsaasti monityydyttymättömiä omega n-3 -sarjan rasvahappoja ja vain vähän tyydyttyneitä rasvahappoja, mikä tekee kirjolohesta terveellisen elintarvikkeen. Kun kala-ateria korvaa liha-aterian, ruokavaliossa vähenee tyydyttyneen rasvan määrä. Kalaa sisältävän ruokavalion on todettu alentavan kolesterolia silloin, kun kala on ruokavaliossa korvannut tyydyttyneitä rasvahappoja runsaasti sisältäviä ruokia. Kalansyönnillä on havaittu olevan sydänsairauksia vähentävä vaikutus. Kasvatetut kalat ovat  puhtaita dioksiineista ja PCB:stä. (KTL 2004)</p>
+									
+									
+								</div>
+							</div>
+						</div>
+						<div class="note" style="display:none;" id="workplace">
+							<div class="arrow">
+								<div class="notetext">
+									<h1>Työhyvinvointi</h1>
+								</div>
+							</div>
+						</div>
+						<div class="note" style="display:none;" id="animalcare">
+							<div class="arrow">
+								<div class="notetext">
+									<h1>Eläinten hyvinvointi</h1>
+									
+									<p>Kalankasvatukseen liittyy myös eläinsuojelullisia näkökohtia. Kalankasvatus aiheuttaa välillisiä vaikutuksia ympäristöön rehun valmistamisen kautta, esimerkiksi rehukalan kalastuksesta aiheutuneet vaikutukset meren pohjaeliöstölle ja liikakalastus.</p>
+								</div>
+							</div>
+						</div>
+						<div class="note" style="display:none;" id="locality">
+							<div class="arrow">
+								<div class="notetext">
+									<h1>Paikallisuus</h1>
+									<p>Suomessa myytävä kirjolohi on pääasiallisesti kotimaista. Varmista tarkempi pyyntialue kalapakkauksesta, kalatiskillä pyydä myyjältä koodi pakkauslaatikosta.</p>
+								</div>
+							</div>
+						</div>
+						<div class="note" style="display:none;" id="economics">
+							<div class="arrow">
+								<div class="notetext">
+									<h1>Taloudellinen vastuu</h1>
+									<p>Vuonna 1999 kalanjalostusyrityksissä työskenteli 1 432 työntekijää, joista 887 täysipäiväisesti. Henkilötyövuosia oli 996. Kalanjalostusteollisuuden liikevaihto vuonna 1997 oli noin 80 miljoonaa euroa (Maakuntien kalatalous 1999). Yleisimmin jalostettu kala oli silakka (20 000 tonnia vuonna 2001), toiseksi yleisin kirjolohi (12 600 tonnia vuonna 2001) ja kolmanneksi yleisin siika (Nylander 2002).</p>
+									
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="push"></div>
+			</div>
+		</div>
+		<div class="footer">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+			voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+		</div> 
+	</body>
+</html>
+

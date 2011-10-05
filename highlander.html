@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Sydänmaan Highlander (PoGo)</title>
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito|Metrophobic|Open+Sans|Pacifico"/>
+		<link href="css1/style.css" rel="stylesheet" type="text/css" media="screen"/>
+		<script src="js/raphael-min.js"></script>
+		<script src="js/g.raphael-min.js"></script>
+		<script src="pogo.js"></script>
+		<!-- google map -->
+		<script type="text/javascript"
+			src="http://maps.google.com/maps/api/js?sensor=false">
+			</script>
+		<script type="text/javascript">
+			var tree= {
+				name:"Sydänmaan Highlander",
+				weight:10,
+				0:{
+					name:"Logistiikka",
+					weight:10,
+					0:{
+						name:"Pakkaaminen",
+						weight:4,
+						0:{
+							name:"Suunnittelu",
+							weight:2
+						}
+					}
+				},
+				1:{
+					name:"Valmistaminen",
+					weight:10,
+					0:{
+						name:"Rypsiöljyn valmistus",
+						weight:10
+					},
+					1:{name:"Vesi",weight:5},
+				}
+			};
+			
+			function initialize() {
+				render('raphael', tree);
+				
+				// map
+				var p1 = new google.maps.LatLng(63.948956, 26.094804);
+				var p2 = new google.maps.LatLng(62.965524, 27.862701);
+				var p3 = new google.maps.LatLng(60.380612,25.800018);
+				var latlng = new google.maps.LatLng((p1.lat()+p2.lat()+p3.lat()) / 3, (p1.lng()+p2.lng()+p3.lng()) / 3);
+				//var latlng = new google.maps.LatLng(6.570569,14.919434);
+				var myOptions = {
+					zoom: 5,
+					center: latlng,
+					mapTypeControl:false,
+					streetViewControl:false,
+					scaleControl:false,
+					panControl:false,
+					zoomControl:false,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				var map = new google.maps.Map(document.getElementById("map_canvas"),
+											  myOptions);
+				
+				var m1 = new google.maps.Marker({
+												position: p1, 
+												map: map, 
+												title:"Sydänmaan Highlander"
+												});
+				
+				var m2 = new google.maps.Marker({
+												position: p2, 
+												map: map, 
+												title:"Savo-Karjalan Liha Oy"
+												});
+				var m3 = new google.maps.Marker({
+												position: p3, 
+												map: map, 
+												title:"Lihatukku Mariopal Oy"
+												});
+				
+				
+				var info1 = new google.maps.InfoWindow({
+													   content: "<p>Teuraskuljetus tilataan Savo-Karjalan Liha Oy:ltä noin 2vko ennen noutopäivää. </p> <p>Kun tilalle saadaan ilmoitus eläinkuljetusauton saapumisajasta, noudetaan lähtevä eläin ladossa sijaitsevaan lastauskarsinaan. Yleensä muutama tunti ennen eläinkuljetusauton saapumista.  Pääsääntöisesti eläimet kävelevät itse vapaaehtoisesti tuttuun latoon, koska niitä on ruokittu ladon kautta tuoduille rehuilla ja tutut hoitajat liikkuvat päivittäin tässä ympäristössä. Yleensä latoon menee joukko sonneja, joista ylimääräiset palautetaan takaisin aitaukseensa. Jokaiselle sonnille on oma karsina mahdollisten taistelujen ehkäisemiseksi.  Karsinoissa sonneilla on tarjolla vettä sekä rehua. </p>"
+													   });
+				var info2 = new google.maps.InfoWindow({
+													   content: "<p>Savo-Karjalan eläintenkuljetusauto noutaa eläimet tilalta ja kuljettaa Savo-Karjalan Liha Oy:n teurastamoon teurastettavaksi. Seuloon lähtevä ruho kuljetetaan teurastamolta Savo-Karjalan Liha Oy:n toimesta pääkaupunkiseudulle leikattavaksi Savo-Karjalan Liha Oy:n yhteistyökumppanille Lihatukku Mariopal Oy:lle.</p>"
+													   });
+				var info3 = new google.maps.InfoWindow({
+													   content:"<p>Mariopal Oy leikkaa ja pakkaa lihan vakuumipakkauksiin. Jauheliha jauhetaan mahdollisimman lähellä noutohetkeä, ennen kuin lihat siirtyvät kylmäkuljetuksella Seulon terminaaliin. Koska lihat toimitetaan torstaina puoleen päivään mennessä Seulon terminaaliin, on tuoreen jauhelihan kanssa päästy parhaimmillaan muutaman tunnin viiveeseen jauhamisesta asiakastoimitukseen saakka. Jauhelihankin pakkaaminen vakuumipakkauksiin antaa loppuasiakkaalle paremmin aikaa jauhelihan loppukäsittelyyn. </p><p>Lihalähetyksen saavuttua Seulon terminaaliin, hoitaa Seulon henkilökunta jakelun ennalta tilatun aikataulun mukaan loppuasiakkaalle. </p>"
+													   });
+				google.maps.event.addListener(m1, 'click', function() {
+											  info1.open(map,m1);
+											  });
+				google.maps.event.addListener(m2, 'click', function() {
+											  info2.open(map,m2);
+											  });
+				google.maps.event.addListener(m3, 'click', function() {
+											  info3.open(map,m3);
+											  });
+				
+				var route = new google.maps.Polyline({
+													 path: [p1,p2,p3],
+													 strokeColor: "#FF0000",
+													 strokeOpacity: 1.0,
+													 strokeWeight: 2
+													 });
+				
+				route.setMap(map);
+			}
+			
+			</script>
+	</head>
+	<body id="body" onload="initialize()">
+		<div class="wrapper">
+			<div id="topright"></div>
+			<div id="header">
+				<div class="outer">
+					<div class="avatar" style="width:auto;height:auto">
+						<img id="title" src="kuvat/pogo.png"/><br>
+						<p class="script" style="position:relative;left:-80px;top:-25px;height:0px;">Tiedä mitä syöt</p>
+					</div>
+					<div class="body">
+						<div class="text" style="text-align:right;">
+							<div class="search">
+								<form>
+									<input id="in" name="s" type="search" results="5" placeholder="Minkä elintarvikkeen taustan haluaisit tietää?" style="width:280px;"/>
+									<div class="glass">Hae</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<br style="clear:both"/>
+				</div>
+				<ul id="social" style="right:100px;">
+					<li>Hae luomuruokaa</li>
+					<li style="margin-left:20px;">Hae lähialueelta</li>
+				</ul>
+				<ul id="social" style="left:120px;">
+					<li>Facebook</li>
+					<li>Twitter</li>
+					<li>RSS</li>
+				</ul>
+			</div>
+			<div class="topbarwrap">
+			</div>
+			
+			<div class="wrap">
+				<div class="box3">
+					<ul id="stats">
+						<li class="statborder">
+							<h1>Loppupäätelmä</h1>
+							<img src="img/ok.jpg" style="display:block;margin:10px auto;"/>
+							<p class="script">Mikä tämä on?</p>
+						</li>
+						<li class="statborder">
+							<h1>Sydänmaan liha / Yleinen</h1>
+							<table class="qgrid1">
+								<tr><td>Ympäristö</td><td><img src="kuvat/green.png"/></td><td><img src="kuvat/red.png"/></td></tr>
+								<tr><td>Tuoteturvallisuus</td><td><img src="kuvat/green.png"/></td><td><img src="kuvat/red.png"/></td></tr>
+								<tr><td>Ravitsemus</td><td><img src="kuvat/green.png"/></td><td><img src="kuvat/red.png"/></td></tr>
+								<tr><td>Työhyvinvointi</td><td title="Isäntää masentaa, mutta se ei liity näihin töihin."><img src="kuvat/grey.png"/></td><td><img src="kuvat/red.png"/></td></tr>
+								<tr><td>Eläinten hyvinvointi</td><td title="No ne kaikki tapetaan."><img src="kuvat/green.png"/></td><td><img src="kuvat/red.png"/></td></tr>
+								<tr><td>Paikallisuus</td><td><img src="kuvat/green.png"/></td><td><img src="kuvat/red.png"/></td></tr>
+								<tr><td>Taloudellinen vastuu</td><td><img src="kuvat/green.png"/></td><td><img src="kuvat/red.png"/></td></tr>
+								<tr><td class="script" colspan="3">Mikä tämä on?</td></tr>
+							</table>
+						</li>
+						<li class="statborder">
+							<div style="width:200px;">
+								<h1>Vastuullisuusketju</h1>
+								<div id="raphael" style="width:200px;height:150px;">&nbsp;</div>
+								<p class="script">Mikä tämä on?</p>
+							</div>
+						</li>
+					</ul>
+					
+					<div class="article">
+						<p class="script" style="float:right;">Mainos</p>
+						
+						<div class="polaroid" style="float:right;clear:right;">
+							<iframe width="200" height="143" src="http://www.youtube.com/apiplayer?video_id=3AqA-fdzd_c&version=3&modestbranding=0&rel=0&hd=1&autoplay=0&autohide=0&controls=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+						</div>
+						
+						
+						<h1>Sydänmaan Highlander – pellolta lautaselle</h1>
+						
+						<p>Sydänmaan Highlanderin Highland Cattle –luomukarja laiduntaa Pohjois-Pohjanmaalla, Kärsämäellä, Sydänmaankylässä Eero ja Seija Raudaskosken luomumaatilalla. (www.sydanmaanmaatilalomat.net)</p>
+						<p>Highland Cattle-karja on ulkona ympäri vuoden. Laajoilla laidunalueilla on myös metsälaitumet  sekä sääsuojat käytettävissä. Karjalle menee vesijohtovesi myös talvella lämmitettyjen juomakuppien avulla. Kaikki karjan syömä rehu on luomurehua. </p>
+						<p>Highland Cattle –karja elää kiinteissä laumoissa ja emät hoitavat vasikkansa vieroitusikään saakka, joten lauma pääsee näin ollen toteuttamaan rodulle tyypillisiä käyttäytymistapoja. Jokaisella emolaumalla on oma jalostussonni, ja sonnivalinta on tehty huomioiden myös jalostus- , sekä sukulinjanäkökohdat. </p>
+						<p>Raudaskosken tilalla on Highland Cattle-eläimiä noin 130-150kpl, määrän vaihdellessa tuotantovaiheen mukaan. </p>
+						<p>Raudaskosken tila kuuluu luomuvalvonnan piiriin. Valvovana viranomaisena toimii Pohjois-Pohjanmaan ELY-keskus (FI-EKO-113).</p>
+						
+						<div class="ad">
+							<p class="script" style="float:right;">Mainos</p>
+							<a class="punch" href="www.seulo.fi">Tilaa toimitus kotiisi!</a><br>
+							<a class="url" href="www.seulo.fi">www.seulo.fi</a>
+							<p class="text">Seulo - ostokset ja palvelut kotiin</a>
+						</div>
+						
+						<table>
+							<tr>
+								<td>
+									<div id="graph" style="padding:10px;position:relative;overflow:hidden;border:1px solid #eee;width:680px;height:230px;display:none;">&nbsp;</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p>Sonnin matka tilalta Seuloon tapahtuu seuraavasti:</p>
+									<div id="map_canvas" style="border:1px solid #eee;width:700px;height:350px;"></div>
+								</td>
+							</tr>
+						</table>
+						Kuvia tilalta:
+						<ul id="pics">
+							<!--
+							 <li class="polaroid">
+							 <iframe width="200" height="143" src="http://www.youtube.com/apiplayer?video_id=3AqA-fdzd_c&version=3&modestbranding=0&rel=0&hd=1&autoplay=0&autohide=0&controls=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+							 </li>
+							 -->
+							<li><img class="borderddd" src="kuvat/apples.png"/></li>
+							<li><img class="borderddd" src="kuvat/farmer2.png"/></li>
+							<li><img class="borderddd" src="kuvat/apples.png"/></li>
+						</ul>
+						
+						
+					</div>
+					
+					<div class="push"></div>
+				</div>
+				
+				
+			</div>
+		</div>
+		
+		<div class="footer">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+			voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+		</div> 
+	</body>
+</html>
+

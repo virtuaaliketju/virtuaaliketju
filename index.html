@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>PoGo</title>
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito|Metrophobic|Open+Sans|Pacifico"/>
+		<link href="css1/style.css" rel="stylesheet" type="text/css" media="screen"/>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<link type="text/css" href="css1/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="js/jquery.jscrollpane.js"></script>
+		<style type="text/css">
+			.jspDrag
+			{
+				background: #fff;
+				border:1px solid #ddd;
+			}
+			.jspTrack
+			{
+				background: #ccc;
+			}
+			.jspVerticalBar{
+				margin-right:3px;
+			}
+			</style>
+	</head>
+	<body id="body" onload="$('.news').jScrollPane({autoReinitialize:true});">
+		<div class="wrapper">
+			<div id="topright"></div>
+			<div id="header">
+				<div class="outer">
+					<div class="avatar" style="width:auto;height:auto">
+						<a href="index.html"><img id="title" src="kuvat/pogo.png"/></a><br>
+						<p class="script" style="position:relative;left:-80px;top:-25px;height:0px;">Tiedä mitä syöt</p>
+					</div>
+					<div class="body">
+						<div class="text" style="text-align:right;">
+							<div class="search">
+								<form>
+									<input id="in" name="s" type="search" results="5" placeholder="Minkä elintarvikkeen taustan haluaisit tietää?" style="width:320px;"/>
+									<div class="glass" onclick="window.location='margarine.html'">Hae</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<br style="clear:both"/>
+				</div>
+				<ul id="social" style="right:100px;">
+					<li>Hae luomuruokaa</li>
+					<li style="margin-left:20px;">Hae lähialueelta</li>
+				</ul>
+				<ul id="social" style="left:120px;">
+					<li>Facebook</li>
+					<li>Twitter</li>
+					<li>RSS</li>
+				</ul>
+			</div>
+			<br/>
+			<div class="wrap">
+				
+				<ul id="stats">
+					<li class="statborder"><img src="kuvat/apples.png"/></li>
+					<li class="statborder"><img src="kuvat/farmer2.png"/></li>
+				</ul>
+				<div class="article">
+					<table class="indexmain" cellspacing="10">
+						<tr>
+							<td>
+								<h1>Mikä on Pogo?</h1>
+								<p>Pogo kertoo sinulle mistä syömäsi ruoka on peräisin ja auttaa sinua tekemään arvojesi mukaisia ruokavalintoja.</p>
+							</td>
+							<td>
+								<h1>Voinko minä vaikuttaa?</h1>
+								<p>Osallistu talkoisiin ruoan alkuperän selvittämiseksi! Keskustele,  jaa tietoa ystävillesi, ehdota uusia elintarvikkeita ja muokkaa sisältöjä Pogossa.</p>
+								<p><a href="#" class="script">Tarkemmat ohjeet</a></p>
+							</td>
+							<td>
+								<h1>Facebook</h1>
+								<div class="news">
+									<div class="outer">
+										<div class="avatar"><img class="avatar" src="kuvat/t_farmer2.png"/></div>
+										<div class="body">
+											<a href="highlander.html" target="_top">
+												<div class="head">Yl&auml;maankarja</div>
+												<div class="text">Hyv&auml;&auml; luomulihaa Pohjois-Pohjanmaalta.</div>
+											</a>
+											<div class="ago">3 minuuttia sitten.</div>
+										</div>
+										<br style="clear:both;"/>
+									</div>
+									<div class="outer">
+										<div class="avatar"><img class="avatar" src="kuvat/t_farmer2.png"/></div>
+										<div class="body">
+											<div class="head">Hanna Harilainen</div>
+											<div class="text">Uusia luomutoreja Kustavin alueella! Purjehtijat huomatkaa! Hyvi‰ tarjouksia juhannusreissuja varten.</div>
+											<div class="ago">10 minuuttia sitten.</div>
+										</div>
+										<br style="clear:both;"/>
+									</div>
+									<div class="outer">
+										<div class="avatar"><img class="avatar" src="kuvat/t_farmer2.png"/></div>
+										<div class="body">
+											<div class="head">Lorem ipsum</div>
+											<span class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+												minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+												esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+											<div class="ago">4 tuntia sitten.</div>
+										</div>
+										<br style="clear:both;"/>
+									</div>
+									<div class="outer">
+										<div class="avatar"><img class="avatar" src="kuvat/t_farmer2.png"/></div>
+										<div class="body">
+											<div class="head">Tomaatti</div>
+											<div class="text">Yleinen vastuullisuus selvitys lis‰tty.</div>
+											<div class="ago">6 tuntia sitten.</div>
+										</div>
+										<br style="clear:both;"/>
+									</div>
+									</td>
+						</tr>
+						
+						
+						<tr>
+							<td>
+								<h1>Viimeksi lisätyt</h1>
+								<div class="news" style="text-align:center;">
+									<div class="pic"><img class="avatar" src="kuvat/ttori.png"/></div>
+									<div class="headi">T&ouml;&ouml;l&ouml;ntorin torip&auml;iv&auml;</div>
+									<div class="agoi">3 minuuttia sitten.</div>
+									
+									<div class="pic"><img class="avatar" src="kuvat/labby.jpg"/></div>
+									<div class="headi">Labbyn Kartano</div>
+									<div class="agoi">10 minuuttia sitten.</div>
+									
+									<div class="pic"><img class="avatar" src="kuvat/cattle.jpeg"/></div>
+									<div class="headi">Yl&auml;maankarjaa Sellossa</div>
+									<div class="agoi">4 tuntia sitten.</div>
+									
+									<div class="pic"><img class="avatar" src="kuvat/cattle.jpeg"/></div>
+									<div class="headi">Yl&auml;maankarjaa Sellossa</div>
+									<div class="agoi">4 tuntia sitten.</div>
+								</div>						</td>
+							<td>
+								<h1>Paikalliset tuotteet</h1>
+								<div class="news" style="text-align:center;" id="local">
+									<div class="pic"><img class="avatar" src="kuvat/ttori.png"/></div>
+									<div class="headi">T&ouml;&ouml;l&ouml;ntorin torip&auml;iv&auml;</div>
+									<div class="agoi">3 minuuttia sitten.</div>
+									
+									<div class="pic"><img class="avatar" src="kuvat/labby.jpg"/></div>
+									<div class="headi">Labbyn Kartano</div>
+									<div class="agoi">10 minuuttia sitten.</div>
+									
+									<div class="pic"><img class="avatar" src="kuvat/cattle.jpeg"/></div>
+									<div class="headi">Yl&auml;maankarjaa Sellossa</div>
+									<div class="agoi">4 tuntia sitten.</div>
+									
+									<div class="pic"><img class="avatar" src="kuvat/cattle.jpeg"/></div>
+									<div class="headi">Yl&auml;maankarjaa Sellossa</div>
+									<div class="agoi">4 tuntia sitten.</div>
+									
+									<div class="pic"><img class="avatar" src="kuvat/cattle.jpeg"/></div>
+									<div class="headi">Yl&auml;maankarjaa Sellossa</div>
+									<div class="agoi">4 tuntia sitten.</div>
+									
+									<div class="pic"><img class="avatar" src="kuvat/cattle.jpeg"/></div>
+									<div class="headi">Yl&auml;maankarjaa Sellossa</div>
+									<div class="agoi">4 tuntia sitten.</div>
+									
+									<div class="pic"><img class="avatar" src="kuvat/cattle.jpeg"/></div>
+									<div class="headi">Yl&auml;maankarjaa Sellossa</div>
+									<div class="agoi">4 tuntia sitten.</div>
+									
+								</div>
+							</td>
+							<td>
+								<h1>Kauden kasvikset</h1>
+								<div class="news" style="text-align:center;">
+									<div class="pic"><a href="tomato.html"><img class="avatar" src="kuvat/tomato.png"/></a></div>
+									<div class="headi">Tomaatti</div>
+									<div class="agoi">3 minuuttia sitten.</div>
+									
+									<div class="pic"><img class="avatar" src="kuvat/veal.jpeg"/></div>
+									<div class="headi">Karitsa</div>
+									<div class="agoi">10 minuuttia sitten.</div>
+									
+									<div class="pic"><img class="avatar" src="kuvat/cattle.jpeg"/></div>
+									<div class="headi">Lorem ipsum</div>
+									<div class="agoi">4 tuntia sitten.</div>
+									
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="push"></div>
+			</div>
+			
+		</div>
+		<div class="footer">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+			voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+		</div> 
+	</body>
+</html>
+

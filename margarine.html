@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Margariini (PoGo)</title>
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito|Metrophobic|Open+Sans|Pacifico"/>
+		<link href="css1/style.css" rel="stylesheet" type="text/css" media="screen"/>
+		<script type="text/javascript" src="pogo.js"></script>
+		<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+		<script src="js/raphael-min.js"></script>
+		<script src="js/g.raphael-min.js"></script>
+		<!-- google map -->
+		<script type="text/javascript"
+			src="http://maps.google.com/maps/api/js?sensor=false">
+			</script>
+		<script type="text/javascript">
+			
+			window.fbAsyncInit = function() {
+				FB.init({
+						appId  : '255937131083313',
+						status : true, // check login status
+						cookie : true, // enable cookies to allow the server to access the session
+						xfbml  : true  // parse XFBML
+						});
+				setTimeout(function() {
+						   FB.Canvas.setAutoResize();
+						   }, 300);
+			};
+			
+			
+			var tree= {
+				name:"Margariini",
+				weight:10,
+				0:{
+					name:"Logistiikka",
+					weight:10,
+					0:{
+						name:"Pakkaaminen",
+						weight:4,
+						0:{
+							name:"Suunnittelu",
+							weight:2
+						}
+					}
+				},
+				1:{
+					name:"Valmistaminen",
+					weight:20,
+					0:{
+						name:"Rypsiöljyn valmistus",
+						weight:10,
+						0:{name:"Rypsin viljely",weight:15,
+							0:{name:"Perusmuokkaus", weight:2},
+							1:{name:"Kalkitus", weight:3},
+							2:{name:"Kylvömuokkaus", weight:4},
+							3:{name:"Kylvö ja lannoitus", weight:5},
+							4:{name:"Kasvinsuojelu", weight:5}
+						}
+					},
+					1:{name:"Palmuöljyn valmistus",weight:29
+					},
+					2:{name:"Kookosöljyn valmistus",weight:10},
+					3:{name:"Vesi",weight:5},
+				}
+			};
+			
+			function initialize() {
+				render('raphael', tree);
+
+				var e = document.createElement('script'); e.async = true;
+				e.src = document.location.protocol +
+				'//connect.facebook.net/fi_FI/all.js';
+				document.getElementById('fb-root').appendChild(e);
+			}
+			
+			</script>
+	</head>
+	<body id="body" onload="initialize()">
+		<div class="wrapper">
+			<div id="topright"></div>
+			<div id="header">
+				<div class="outer">
+					<div class="avatar" style="width:auto;height:auto">
+						<img id="title" src="kuvat/pogo.png"/><br>
+						<p class="script" style="position:relative;left:-80px;top:-25px;height:0px;">Tiedä mitä syöt</p>
+					</div>
+					<div class="body">
+						<div class="text" style="text-align:right;">
+							<div class="search">
+								<form>
+									<input id="in" name="s" type="search" results="5" placeholder="Minkä elintarvikkeen taustan haluaisit tietää?" style="width:280px;"/>
+									<div class="glass" onclick="window.location='rtrout.html'">Hae</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<br style="clear:both"/>
+				</div>
+				<ul id="social" style="right:100px;">
+					<li>Hae luomuruokaa</li>
+					<li style="margin-left:20px;">Hae lähialueelta</li>
+				</ul>
+				<ul id="social" style="left:120px;">
+					<li>Facebook</li>
+					<li>Twitter</li>
+					<li>RSS</li>
+				</ul>
+			</div>
+			
+			<div class="topbarwrap">
+				<div class="breadcrumb">
+					Haku "margariini" oli suora osuma. Tutki <a href="#">muita artikkeleita aiheesta</a>.
+				</div>
+			</div>
+			
+			<div class="wrap">
+				<div class="box3">
+					
+					<ul id="stats">
+						<li class="statborder">
+							<h1>Margariini</h1>
+							<table class="qgrid1">
+								<tr id="environrow"><td class="c1" onclick="toggle('environ', 'environrow')">Ympäristö</td><td><img src="kuvat/red.png"/></td></tr>
+								<tr id="safetyrow"><td class="c1" onclick="toggle('safety', 'safetyrow')">Tuoteturvallisuus</td><td><img src="kuvat/green.png"/></td></tr>
+								<tr id="sustenancerow"><td class="c1" onclick="toggle('sustenance','sustenancerow')">Ravitsemus</td><td><img src="kuvat/green.png"/></td></tr>
+								<tr id="workrow"><td class="c1" onclick="toggle('workplace','workrow')">Työhyvinvointi</td><td><img src="kuvat/grey.png"/></td></tr>
+								<tr id="animalrow"><td class="c1" onclick="toggle('animalcare','animalrow')">Eläinten hyvinvointi</td><td><img src="kuvat/green.png"/></td></tr>
+								<tr id="localrow"><td class="c1" onclick="toggle('locality','localrow')">Paikallisuus</td><td><img src="kuvat/green.png"/></td></tr>
+								<tr id="econrow"><td class="c1" onclick="toggle('economics','econrow')">Taloudellinen vastuu</td><td><img src="kuvat/green.png"/></td></tr>
+								<tr><td class="script" colspan="2">Mikä tämä on?</td></tr>
+							</table>
+						</li>
+						<li class="statborder">
+							<div style="width:200px;">
+								<h1>Vastuullisuusketju</h1>
+								<div id="raphael" style="width:200px;height:150px;">&nbsp;</div>
+								<p class="script">Mikä tämä on?</p>
+							</div>
+						</li>
+						<li class="statborder">
+							<h1>Loppupäätelmä</h1>
+							<img src="img/ok.jpg" style="display:block;margin:10px auto;"/>
+							<p class="script">Mikä tämä on?</p>
+						</li>
+					</ul>
+					<!--</td></tr>
+					 </table>-->
+					<div class="article">
+						
+						<div class="polaroid" style="float:right">
+							<img width="200" height="143" src="img/Butter.jpg"/>
+						</div>
+						<h1>Margariini</h1>
+						
+						<p>Margariini on kasvi- tai eläinrasvoista valmistettu levite.</p>
+						<p>Margariinia voidaan valmistaa pelkästään kasvirasvoista, mutta talous- ja leivontamargariineissa on yleensä sekä kasvi- että eläinrasvoja. Useissa margariineissa on myös lehmän maitoa, emulgointiaineita ja suolaa .Margariinia voidaan valmistaa esimerkiksi rapsiöljystä, rypsiöljystä ja soijaöljystä.</p>
+						<!--
+						 <h2>Viitteet:</h2>
+						 <table>
+						 <tr><td style="width:50px;" id="cite-4">[3]</td><td></td></tr>
+						 </table>
+						 -->
+						<div id="overlay" onclick="hideNote();" style="display:none">
+							<div class="note" style="display:none;" id="safety">
+								<div class="arrow">
+									<div class="notetext">
+										<h1>Tuoteturvallisuus</h1>
+									</div>
+								</div>
+							</div>
+							<div class="note" style="display:none;" id="environ">
+								<div class="arrow">
+									<div class="notetext">
+										<h1>Ympäristö</h1>
+									</div>
+								</div>
+							</div>
+							<div class="note" style="display:none;" id="sustenance">
+								<div class="arrow">
+									<div class="notetext">
+										<h1>Ravitsemus</h1>
+									</div>
+								</div>
+							</div>
+							<div class="note" style="display:none;" id="workplace">
+								<div class="arrow">
+									<div class="notetext">
+										<h1>Työhyvinvointi</h1>
+									</div>
+								</div>
+							</div>
+							<div class="note" style="display:none;" id="animalcare">
+								<div class="arrow">
+									<div class="notetext">
+										<h1>Eläinten hyvinvointi</h1>
+									</div>
+								</div>
+							</div>
+							<div class="note" style="display:none;" id="locality">
+								<div class="arrow">
+									<div class="notetext">
+										<h1>Paikallisuus</h1>
+									</div>
+								</div>
+							</div>
+							<div class="note" style="display:none;" id="economics">
+								<div class="arrow">
+									<div class="notetext">
+										<h1>Taloudellinen vastuu</h1>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<br style="clear:right;"/>
+					</div>
+					
+					<hr/>
+					
+					<div id="fb-root">
+						<fb:like send="true"></fb:like>
+						<fb:comments migrated="1" canpost="true" candelete="true" showform="true" xid="margarine_comments" width="650"></fb:comments>
+					</div>
+					
+				</div>
+				
+				<div class="push"></div>
+			</div>
+			
+		</div>
+		<div class="footer">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+			voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+		</div> 
+	</body>
+</html>
+
